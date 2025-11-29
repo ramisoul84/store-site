@@ -1,0 +1,32 @@
+<div class="auth">
+    <div *ngIf="false">
+        Здравствуйте,Рами!
+        <div>
+            Logout
+        </div>
+    </div>
+
+    <div>
+        <div *ngIf="isLoginPage" class="login">
+            <p class="title">Authorization</p>
+            <form class="login-form">
+                <label for="phone">Enter your phone number</label>
+                <input type="tel" name="phone" id="phone" placeholder="+7 (999) 999-99-99" required autofocus>
+            </form>
+            <div class="error">
+
+            </div>
+            <button class="submit" (click)="submit()">
+                LOGIN
+            </button>
+        </div>
+        <div *ngIf="!isLoginPage" class="confirm">
+            <p class="title">Enter the code from the SMS</p>
+            <p class="text">We sent a message to the phone number <span class="phone">+7 (969) 696-96-96</span> </p>
+            <div class="code">
+                <input *ngFor="let input of inputs; let i = index" #otpInput type="text" inputmode="numeric"
+                    maxlength="1" [attr.autofocus]="i === 0 ? true : null">
+            </div>
+        </div>
+    </div>
+</div>
