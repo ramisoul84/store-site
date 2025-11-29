@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
 
 permissions:
+  contents: read
   pages: write
   id-token: write
 
@@ -26,6 +27,9 @@ jobs:
         
       - name: Build
         run: npm run build -- --configuration production --base-href /store-site/
+        
+      - name: Show build files
+        run: ls -la dist/store-site/browser/
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
